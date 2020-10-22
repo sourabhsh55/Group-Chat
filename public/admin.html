@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>char admin</title>
+    <!-- <script defer src="admin.js"></script> -->
+    <!-- <script src="socket.io/socket.io.js"></script> -->
+    <!-- <script defer src="script.js"></script> -->
+</head>
+<body>
+    <a href="/">
+        <button id="Home">Home</button>
+    </a>
+
+    <br>
+
+    <center><h1>Admin Control</h1>
+
+    <form action="/" method="POST">
+        <label>Admin Key</label>
+        <input type="text" id="admin_key" name="admin_key" required>
+
+
+        <br>
+        <label>Set Room Key</label>
+        <input type="text" id="room_key" name="room_key" required>
+        <br>
+        <label>Delete Chat</label>
+        <input type="checkbox" name="delete_check_box" id="delete_check_box" value="yes">
+        <br>
+        <!-- <button type="submit">Set</button> -->
+        <input type="submit" name="Set">
+    </form>
+    <br>
+    <br>    
+</center>
+
+</body>
+</html>
