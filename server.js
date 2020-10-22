@@ -144,6 +144,9 @@ socket_call();   // calling the socket.io function
 
 
 // making server listen/live
-server.listen(5000,()=>{
+
+let port = process.env.PORT || 3000;
+
+server.listen(port,()=>{
     console.log('server is running!');
 })
