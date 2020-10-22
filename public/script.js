@@ -67,7 +67,7 @@ socket.emit('login',{username:username,key:key});
 
 socket.on('wrong-key',()=>{
     alert('sorry, you have entered wrong password!');
-    document.location.href = "https://stark-river-19581.herokuapp.com//room";
+    document.location.href = "https://stark-river-19581.herokuapp.com/room";
 })
 
 // socket.on('username-already-taken',(data)=>{
