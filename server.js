@@ -17,7 +17,7 @@ app.use(express.json());
 app.use('/',express.static(__dirname + '/public'));
 
 
-mongoose.connect('mongodb+srv://admin-sourabh:chatvilla123@cluster0.kajzr.mongodb.net/chat_room',{ useUnifiedTopology: true ,useNewUrlParser: true} )
+mongoose.connect(`${process.env.MONGODB}`,{ useUnifiedTopology: true ,useNewUrlParser: true} )
  .then(()=>console.log('connected to mongodb'))
  .catch((err)=>console.log('~ERROR : ',err));
 
