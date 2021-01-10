@@ -4,7 +4,7 @@
 
 console.log('yasss under the room!');
 const username = prompt('Enter Username');
-const key = prompt(`Enter Room Key (default is <strong>1</strong>)`);
+const key = prompt(`Enter Room Key (default is 1)`);
 
 const logs = document.getElementById('logs');
 if(logs){
