@@ -59,6 +59,11 @@ btn.addEventListener('click',()=>{
         message_box.value = '';
         message_box.focus();
     }
+});
+
+const admin_pannel_btn = document.getElementById("admin-pannel");
+admin_pannel_btn.addEventListener("click",()=>{
+    document.location.href = "https://stark-river-19581.herokuapp.com/admin";
 })
 
 socket.on('messaging',(data)=>{
