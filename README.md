@@ -1,9 +1,10 @@
-# Group Chat
+# Group-Chat
 
 ## Run localy:-
     1) Clone repo
-        $ git clone https://github.com/sourabhsh55/Group-Chat.git
+        $ mkdir Group-chat
         $ cd Group-Chat
+        $ git clone https://github.com/sourabhsh55/Group-Chat.git
 
     2) Setup MongoDB database.
         Download and Install it from mongodb.com
