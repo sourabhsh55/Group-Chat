@@ -4,6 +4,7 @@ const socket = require('socket.io');
 const http = require('http');
 const mongoose = require('mongoose');
 const { Msg } = require('./model');
+require("dotenv").config();
 
 const app = express();
 
@@ -15,10 +16,6 @@ app.use(express.json());
 
 app.use('/',express.static(__dirname + '/public'));
 
-// connecting mongodb.
-// mongoose.connect('mongodb://127.0.0.1/chat_room',{ useUnifiedTopology: true ,useNewUrlParser: true} )
-//  .then(()=>console.log('connected to mongodb'))
-//  .catch((err)=>console.log('~ERROR : ',err));
 
 mongoose.connect('mongodb+srv://admin-sourabh:chatvilla123@cluster0.kajzr.mongodb.net/chat_room',{ useUnifiedTopology: true ,useNewUrlParser: true} )
  .then(()=>console.log('connected to mongodb'))
@@ -29,7 +26,7 @@ mongoose.connect('mongodb+srv://admin-sourabh:chatvilla123@cluster0.kajzr.mongod
     res.sendFile(path);
 })
 
-const ADMIN_KEY = 9818;
+const ADMIN_KEY = process.env.ADMIN_KEY;
 let ROOM_KEY = 1;
 
 app.get('/',(req,res)=>{
@@ -39,7 +36,6 @@ app.get('/',(req,res)=>{
 
 app.post('/',async(req,res)=>{
     console.log(req.body);
-    // console.log(req.body.delete_check_box=='yes');
     if(req.body.delete_check_box=='yes'){
         console.log('yes check box is present')
         await deleteAll();
@@ -70,31 +66,17 @@ let deleteAll = async ()=>{
 
 var counter = 0;
 
-// function check_user(user_name){
-//     let idx = already_present_user.indexOf(user_name);
-//     if(idx>-1){
-//         return true;
-//     }
-// }
-
-// var already_present_user = [];
-
 const socket_call = async () => {
     io.on('connection',socket=>{
 
         // Log all the messages on the screen 
         socket.on('login',async (data)=>{
-            // let ispresent = check_user(data.username);
-            // if(ispresent){
-            //     socket.emit('username-already-taken',({data.username}));
-            // }
             let given_key = data.key;
             if(given_key != ROOM_KEY){
                 socket.emit('wrong-key');
             }
             else{
                 await Msg.find().then((result)=>{
-                    // console.log(result);
                     let len = result.length;
                     if(len!=0){
                         let curr_count = result[len-1].count + 1;
@@ -116,7 +98,6 @@ const socket_call = async () => {
             data.count = counter;
             console.log('DATA : ',data);
             counter++;
-            // console.log('counter has been incremented',counter);
             let new_data = new Msg(data);
             new_data.save().then(()=>{
                 console.log('yes msg has been logged');

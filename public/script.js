@@ -1,49 +1,3 @@
-// var password,name;
-
-// if(document.location == "http://localhost:5000/"){
-//     password = prompt('Password');
-//     name = prompt('Username');
-//     document.location.href = 'http://localhost:5000/yo.html';
-// }
-
-
-// if(document.location == "http://localhost:5000/yo.html"){
-//     console.log('yes uder the yo page now!');
-//     const list = document.getElementById('list');
-
-//     if(list){
-//         console.log('yes got something : ',`${name}, ${password}`);
-//         let ele1 = document.createElement('P');
-//         let ele2 = document.createElement('P');
-//         ele1.innerText = name;
-//         ele2.innerText = password;
-//         list.appendChild(ele1);
-//         // ele.innerText = password;
-//         list.appendChild(ele2);
-//     }
-//     else{
-//         console.log('no list ele has found!');
-//     }
-// }
-
-
-
-// let name = prompt('Username');
-// let password = prompt('Password');
-
-// document.location.href = "http://localhost:5000/yo.html";
-
-// console.log(`${name} and ${password}`);
-
-
-    // const message = 'this is a msg';
-    // const html = Mustache.render(msgTemplate,{message});
-    // divi.insertAdjacentHTML('beforeend',html);
-
-// const msgTemplate = document.getElementById('msg-template').innerHTML;
-// const divi = document.getElementById('divi');
-// const html = Mustache.render(msgTemplate,{name});
-// divi.insertAdjacentHTML('beforeend',html);
 
 
 //------------------------CHAT-ROOM---------------------------------
@@ -70,10 +24,6 @@ socket.on('wrong-key',()=>{
     document.location.href = "https://stark-river-19581.herokuapp.com/room";
 })
 
-// socket.on('username-already-taken',(data)=>{
-//     alert(`sorry, username: ${data.username} is already taken`);
-//     document.location.href = "http://localhost:5000/room";
-// })
 
 socket.on('message-log',async (data)=>{
     for(let i=0;i<data.length;i++){
@@ -122,23 +72,3 @@ socket.on('messaging',(data)=>{
     message_ele.innerText += `[${u_name}]: ${data.message}`;
     logs.appendChild(message_ele);
 })
-
-
-
-
-// if(document.location.href == "http://localhost:5000/admin.html"){
-
-
-//     console.log('Under the admin section page!');
-
-//     const clear_btn = document.getElementById('clear-char');
-//     clear_btn.addEventListener('click',()=>{
-//         socket.emit('clear-chat');
-//     })
-
-//     // let admin_key = prompt('Enter Admin Key');
-//     // if(admin_key!=null){
-//     //     socket.emit('admin-login',({admin_key}));
-//     // }
-
-// }
